@@ -4,10 +4,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "copyfiles -f ./bundle/dev/index.html ./; vite",
-    "dev:wtools": "concurrently --kill-others \"yarn vite:dev\" \"yarn tools\"",
-    "tools": "react-devtools",
-    "build": "copyfiles -f ./bundle/prod/index.html ./; tsc && vite build",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -29,9 +27,6 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
-    "concurrently": "^7.3.0",
-    "copyfiles": "^2.4.1",
-    "react-devtools": "^4.25.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
   }
