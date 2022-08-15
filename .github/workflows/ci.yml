@@ -53,7 +53,7 @@ jobs:
         if: matrix.platform == 'ubuntu-latest'
         with:
           files: |
-            target/release/bundle/appimage/*
+            target/release/bundle/appimage/*.Appimage
             target/release/bundle/deb/*.deb
             LICENSE
 
