@@ -19,6 +19,7 @@ and downloading an appropriate version for your operating system.
  - Show Auxilium - Alt + Space
  - Preferences   - Alt + P
  - Quit App - Alt + Q
+
 *Not customisable yet
 
 To hide a the search or preferences window, just click of it or focus on another app.
@@ -70,6 +71,7 @@ Run the setup script
   cargo cmd build
   ```
 </details>
+
 ## Acknowledgements
 
  - [Tauri](https://tauri.app/)
