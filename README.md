@@ -79,4 +79,4 @@ Run the setup script
  - [MUI](https://mui.com/)
  
  ## License
- [MIT © codeaye](https://github.com/codeaye/auxilium/blob/main/README.md)
+ [MIT © codeaye](https://github.com/codeaye/auxilium/blob/main/LICENSE)
