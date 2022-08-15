@@ -1,0 +1,72 @@
+{
+  "build": {
+    "devPath": "http://localhost:5173",
+    "beforeDevCommand": "cd frontend && yarn dev",
+    "distDir": "../frontend/dist",
+    "beforeBuildCommand": "cd frontend && yarn build"
+  },
+  "package": {
+    "productName": "Auxilium",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false
+    },
+    "systemTray": {
+      "iconPath": "icons/32x32.png",
+      "iconAsTemplate": true
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "@codeaye",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.codeaye.dev",
+      "shortDescription": "Spotlight for Developers",
+      "longDescription": "Auxilium is a developer tool that helps you find the right solutions for your errors.",
+      "resources": [],
+      "targets": "all",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "title": "Auxilium",
+        "width": 630,
+        "height": 73,
+        "resizable": false,
+        "fullscreen": false,
+        "alwaysOnTop": true,
+        "visible": false,
+        "decorations": false
+      }
+    ],
+    "updater": {
+      "active": false
+    }
+  }
+}

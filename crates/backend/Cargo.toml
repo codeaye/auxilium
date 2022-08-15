@@ -1,0 +1,31 @@
+[package]
+name = "auxilium"
+default-run = "auxilium"
+version = "0.1.0"
+description = "Spotlight for Developers"
+authors = ["codeaye"]
+license = "MIT"
+
+edition = "2021"
+rust-version = "1.57"
+
+[build-dependencies]
+tauri-build = { version = "1.0.4", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "1.0.5", features = ["global-shortcut", "system-tray"] }
+window-shadows = "0.1.0"
+
+[dependencies.tauri-plugin-store]
+git = "https://github.com/tauri-apps/tauri-plugin-store"
+branch = "dev"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+cocoa = "0.24"
+objc = "0.2.7"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

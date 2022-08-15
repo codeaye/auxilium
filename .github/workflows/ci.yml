@@ -1,0 +1,73 @@
+name: "Build And Release"
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish-tauri:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macos-latest, ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+          submodules: recursive
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Install rust stable
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
+
+      - name: Install tauri cli
+        uses: actions-rs/install@v0.1
+        with:
+          crate: tauri-cli
+          version: latest
+          use-tool-cache: true
+
+      - name: Install app dependencies
+        run: cd crates/frontend && yarn && cd .. && cd ..
+
+      - name: Build the app
+        run: cargo tauri build
+
+      - name: Publish ubuntu files
+        uses: softprops/action-gh-release@v1
+        if: matrix.platform == 'ubuntu-latest'
+        with:
+          files: |
+            target/release/bundle/appimage/*
+            target/release/bundle/deb/*.deb
+            LICENSE
+
+      - name: Publish mac files
+        uses: softprops/action-gh-release@v1
+        if: matrix.platform == 'macos-latest'
+        with:
+          files: |
+            target/release/bundle/dmg/*.dmg
+            target/release/bundle/macos/*
+
+      - name: Publish windows files
+        uses: softprops/action-gh-release@v1
+        if: matrix.platform == 'windows-latest'
+        with:
+          files: |
+            target/release/bundle/msi/*

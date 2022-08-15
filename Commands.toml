@@ -1,0 +1,13 @@
+[dev]
+tauri = { cmd = [{ cmd = "cargo tauri dev", working_dir = "crates/backend" }] }
+[build]
+tauri = { cmd = [
+
+    { cmd = "cargo tauri build", working_dir = "crates/backend" },
+] }
+[setup]
+all = { cmd = [
+    { cmd = "npm i -g yarn --silent", working_dir = "crates/frontend" },
+    { cmd = "yarn", working_dir = "crates/frontend" },
+
+] }

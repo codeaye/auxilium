@@ -1,0 +1,16 @@
+{
+  "tauri": {
+    "windows": [
+      {
+        "title": "Auxilium",
+        "width": 630,
+        "height": 73,
+        "resizable": false,
+        "fullscreen": false,
+        "alwaysOnTop": true,
+        "visible": false,
+        "decorations": true
+      }
+    ]
+  }
+}
