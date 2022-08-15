@@ -77,4 +77,6 @@ Run the setup script
  - [Tauri](https://tauri.app/)
  - [React](https://reactjs.org/)
  - [MUI](https://mui.com/)
-
+ 
+ ## License
+ [MIT © codeaye](https://github.com/codeaye/auxilium/blob/main/README.md)
