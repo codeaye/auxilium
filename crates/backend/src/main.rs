@@ -21,8 +21,6 @@ const TOGGLE_SHORTCUT: &str = "Alt+Space";
 const QUIT_SHORTCUT: &str = "Alt+Q";
 const PREFERENCES_SHORTCUT: &str = "Alt+P";
 
-const ANIMATION_DURATION: Duration = Duration::from_millis(1);
-
 fn open_settings(handle: AppHandle) {
     thread::spawn(move || {
         tauri::WindowBuilder::new(
@@ -56,31 +54,14 @@ fn user_open_request(handle: AppHandle) {
 
 #[tauri::command]
 fn set_mini(window: Window) {
-    thread::spawn(move || {
-        let mut height = 430;
-        while height != 73 {
-            window
-                .set_size(Size::new(LogicalSize { width: 630, height }))
-                .unwrap();
-            thread::sleep(ANIMATION_DURATION);
-            height -= 1;
-        }
-    });
+    window.set_size(Size::new(LogicalSize { width: 630, 73 })).unwrap();
 }
 
 #[tauri::command]
 fn set_max(window: Window) {
-    thread::spawn(move || {
-        let mut height = 73;
-        while height != 430 {
-            window
-                .set_size(Size::new(LogicalSize { width: 630, height }))
-                .unwrap();
-            thread::sleep(ANIMATION_DURATION);
-            height += 1;
-        }
-    });
+     window.set_size(Size::new(LogicalSize { width: 630, 430 })).unwrap();
 }
+
 fn main() {
     // System tray configuration
     let tray = SystemTray::new().with_menu(
