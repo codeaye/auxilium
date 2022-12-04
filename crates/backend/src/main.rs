@@ -54,12 +54,12 @@ fn user_open_request(handle: AppHandle) {
 
 #[tauri::command]
 fn set_mini(window: Window) {
-    window.set_size(Size::new(LogicalSize { width: 630, 73 })).unwrap();
+    window.set_size(Size::new(LogicalSize { width: 630, height: 73 })).unwrap();
 }
 
 #[tauri::command]
 fn set_max(window: Window) {
-     window.set_size(Size::new(LogicalSize { width: 630, 430 })).unwrap();
+     window.set_size(Size::new(LogicalSize { width: 630, height: 430 })).unwrap();
 }
 
 fn main() {
