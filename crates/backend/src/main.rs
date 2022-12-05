@@ -81,7 +81,7 @@ fn main() {
         .setup(|app| {
             let window = app.get_window("main").unwrap();
             // Use the window shadows plugin
-            window_shadows::set_shadow(&window, true).expect("Unsupported platform!");
+//             window_shadows::set_shadow(&window, true).expect("Unsupported platform!");
             // Use transparent titlebar for macos
             #[cfg(target_os = "macos")]
             window.set_transparent_titlebar(true, true);
